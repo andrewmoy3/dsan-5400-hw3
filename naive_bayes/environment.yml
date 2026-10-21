@@ -17,6 +17,7 @@ dependencies:
   - jupyter
   - tqdm
   - transformers
+  - seaborn
   - spacy
   - scipy
   - scikit-learn
