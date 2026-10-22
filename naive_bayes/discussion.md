@@ -40,3 +40,43 @@ Likelihoods: [[7.646e-04 9.427e-07 9.522e-05 ... 1.037e-05 1.037e-05 1.037e-05]
  [2.996e-03 4.558e-06 3.194e-04 ... 4.143e-07 4.143e-07 4.143e-07]]
 Predictions: [1, 0, 0, 1, 0, 0, 0, 0, 1, 0]
 ```
+
+## 2e. Using each index, what document ids are returned for the query “system”? Note that this search should be case-insensitive, so that documents containing “system” and “System” are both returned. Note that in this question, we are not concerned with ranking the documents in any order. We’re simply returning the documents that contain the query terms, but we’re checking for the presence of those terms using our inverted index. Provide some comments.
+
+Using whitespace tokenize
+Docs containing system: [3, 1127, 2552, 3319, 5653, 8772, 8935, 14398, 16515, 16638]
+
+Using nltk tokenizer
+Docs containing system: [3, 1127, 2552, 3319, 5653, 8772, 8935, 14398, 16515, 16638]
+
+Using n-gram tokenizer
+Docs containing system: [3, 1127, 2552, 3319, 5653, 8772, 8935, 14398, 16515, 16638]
+
+All three tokenizers return the same document ids, which is promising. For the n-gram tokenizer, we have to do some extra work because we have to find where the four character sections overlap to match the searched term.
+
+## 2f. Using each index, what document ids are returned for the query “compatibility”? Provide some comments.
+
+Using n-gram tokenizer
+Docs containing compatibility: [8772, 14398]
+
+Using nltk tokenizer
+Docs containing compatibility: [8772, 14398]
+
+Using whitespace tokenizer
+Docs containing compatibility: [8772, 14398]
+
+For compatibility, the three tokenizers return the same document ids, which is again promising. Beyond that, it is effectively the same problem as before, where we have to stitch the four character sections together.
+
+
+## 2g. Using each index, what document ids are returned for the query terms “system” and “compatibility”? There should be at least one document returned. Provide some comments.
+ 
+Using whitespace tokenizer
+Docs containing compatibility AND system: [8772, 14398]
+
+Using nltk tokenizer
+Docs containing compatibility AND system: [8772, 14398]
+
+Using n-gram tokenizer
+Docs containing compatibility AND system: [8772, 14398]
+
+This output contains the same two documents as the previous output, which checks out because those same two documents are listed for the search for 'system' as well. 
