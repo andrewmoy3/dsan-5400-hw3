@@ -1,6 +1,6 @@
 ## 1a. Take a look at my attempt at Naive Bayes. How is it different from yours? What could you have done differently? What do you think I could have done better? Provide some comments.
 
-1. In your calculation of the likelihoods, you add a plus one to the size of the vocabulary in the denominator, which denormalizes the values. The sum of the likelihoods no longer sums to one.
+1. In the calculation of the likelihoods, a plus one is added to the size of the vocabulary in the denominator, which denormalizes the values. The sum of the likelihoods no longer sums to one.
 
 2. Building the vocabulary in the train method uses a set, rather than a dictionary or list, which results in different vocabulary indices between runs. This is not a problem for the model, but may make it more difficult to debug or run tests on with expected values.
 
